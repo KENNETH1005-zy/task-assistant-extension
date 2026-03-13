@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task Assistant</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        width: 320px;
+        padding: 12px;
+        margin: 0;
+      }
+      h3 {
+        margin: 0 0 10px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      button {
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #fff;
+        cursor: pointer;
+      }
+      #status {
+        margin-top: 10px;
+        font-size: 13px;
+        color: #333;
+        min-height: 18px;
+      }
+      #result {
+        margin-top: 10px;
+        font-size: 12px;
+        white-space: pre-wrap;
+        background: #f5f5f5;
+        border-radius: 8px;
+        padding: 8px;
+      }
+      #tasks {
+        margin-top: 12px;
+        display: grid;
+        gap: 8px;
+      }
+      .feed-head {
+        margin-top: 12px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #f7f7f7;
+      }
+      #dailySummary {
+        font-size: 12px;
+        color: #222;
+      }
+      #highRiskOnlyLabel {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 8px;
+        font-size: 12px;
+      }
+      .group-title {
+        margin-top: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #444;
+      }
+      .task {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 8px;
+        background: #fafafa;
+      }
+      .task-title {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .task-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+      .task-meta {
+        margin-top: 4px;
+        font-size: 12px;
+        color: #555;
+      }
+      .task-actions {
+        margin-top: 8px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .risk {
+        font-size: 11px;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 2px 8px;
+        border: 1px solid transparent;
+      }
+      .risk-overdue {
+        color: #a30000;
+        background: #ffe6e6;
+        border-color: #ffb8b8;
+      }
+      .risk-urgent {
+        color: #9c3f00;
+        background: #fff0e1;
+        border-color: #ffd0a8;
+      }
+      .risk-soon {
+        color: #725000;
+        background: #fff8d9;
+        border-color: #f1df8e;
+      }
+      .risk-normal {
+        color: #11633a;
+        background: #e9f9ef;
+        border-color: #bde8cc;
+      }
+      #geminiSection {
+        margin-top: 12px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #fafafa;
+      }
+      #geminiSection label {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+      #geminiKeyInput {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+      #summaryRangeSelect {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-top: 6px;
+      }
+      #customDaysInput {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-top: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Task Assistant</h3>
+    <div class="row">
+      <button id="loginBtn">Connect Google</button>
+      <button id="logoutBtn">Logout</button>
+    </div>
+    <div id="status">Ready</div>
+    <div class="row">
+      <button id="extractTasksBtn">Extract Tasks</button>
+      <button id="clearTasksBtn">Clear Tasks</button>
+    </div>
+    <div class="feed-head">
+      <div id="dailySummary">Daily summary will appear here.</div>
+      <label id="highRiskOnlyLabel">
+        <input id="highRiskOnlyToggle" type="checkbox" />
+        Show only high risk (Overdue + due in 24h)
+      </label>
+    </div>
+    <div id="tasks"></div>
+    <div id="geminiSection">
+      <label for="geminiKeyInput">Gemini API Key (from Google AI Studio)</label>
+      <input
+        id="geminiKeyInput"
+        type="password"
+        placeholder="Paste Gemini API key here"
+      />
+      <label for="summaryRangeSelect" style="margin-top: 8px;">Summarize Selected Range</label>
+      <select id="summaryRangeSelect">
+        <option value="7">Last 7 days</option>
+        <option value="14" selected>Last 14 days</option>
+        <option value="30">Last 30 days</option>
+        <option value="custom">Custom days</option>
+      </select>
+      <input
+        id="customDaysInput"
+        type="number"
+        min="1"
+        max="365"
+        placeholder="Custom days (1-365), e.g. 21"
+      />
+      <div class="row">
+        <button id="saveGeminiKeyBtn">Save Key</button>
+        <button id="summarizeEmailsBtn">AI Summarize Emails</button>
+      </div>
+    </div>
+    <div id="result"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>

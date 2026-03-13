@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Task Assistant",
+  "version": "0.1.1",
+  "description": "Detect email deadlines, prioritize urgent tasks, and add reminders fast.",
+  "minimum_chrome_version": "114",
+  "homepage_url": "https://YOUR_PROJECT_URL",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage", "identity"],
+  "host_permissions": [
+    "https://www.googleapis.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "1045433642464-7o6l0hl70fn1vh3hshgosuegg60j3mav.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/calendar.events"
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Assistant Privacy Policy</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 32px auto;
+        padding: 0 16px;
+        color: #1f1f1f;
+      }
+      h1, h2 {
+        line-height: 1.3;
+      }
+      code {
+        background: #f2f2f2;
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Task Assistant Privacy Policy</h1>
+    <p><strong>Last updated:</strong> 2026-03-10</p>
+
+    <p>
+      Task Assistant helps users detect email deadlines and optionally create calendar reminders.
+    </p>
+
+    <h2>Data We Access</h2>
+    <ul>
+      <li>Google account authorization via OAuth.</li>
+      <li>Gmail read-only data (<code>gmail.readonly</code>) to extract deadline-related information.</li>
+      <li>Google Calendar events permission (<code>calendar.events</code>) to create reminders when requested by the user.</li>
+      <li>Local browser extension storage (<code>chrome.storage</code>) for settings and extracted task state.</li>
+    </ul>
+
+    <h2>How We Use Data</h2>
+    <ul>
+      <li>Identify deadlines and action items from email content.</li>
+      <li>Show deadlines inside the extension UI.</li>
+      <li>Create calendar events only when the user clicks related actions.</li>
+      <li>Generate optional AI summaries if the user provides a Gemini API key.</li>
+    </ul>
+
+    <h2>What We Do Not Do</h2>
+    <ul>
+      <li>We do not sell user data.</li>
+      <li>We do not use Gmail or Calendar data for advertising.</li>
+      <li>We do not share personal data with third parties except Google APIs required for core features.</li>
+    </ul>
+
+    <h2>Data Storage</h2>
+    <ul>
+      <li>Data is primarily stored locally in the user's browser extension storage.</li>
+      <li>OAuth tokens are managed by Google Chrome identity APIs.</li>
+      <li>If backend sync is added in future versions, this policy will be updated before release.</li>
+    </ul>
+
+    <h2>User Control</h2>
+    <ul>
+      <li>Users can disconnect Google access from extension settings and Google account permissions.</li>
+      <li>Users can clear extracted tasks using the "Clear Tasks" action.</li>
+      <li>Users can uninstall the extension at any time.</li>
+    </ul>
+
+    <h2>Security</h2>
+    <ul>
+      <li>We use OAuth 2.0 for Google authentication.</li>
+      <li>We request only the minimum scopes required for the described features.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>
+      For privacy questions, contact: <strong>YOUR_EMAIL_HERE</strong>
+    </p>
+  </body>
+</html>
